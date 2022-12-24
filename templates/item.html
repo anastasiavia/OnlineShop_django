@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>item</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+<table>
+  <tr style = 'font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #7f878c;
+  text-decoration: none;
+  font-style: normal;'
+   >
+    <th style="word-spacing: 5px">ItemName</th>
+        <th style="padding-left: 1em">Category</th>
+    <th style="padding-left: 1em">Price</th>
+      <th style="padding-left: 1em">Status</th>
+      <th style="padding-left: 1em">Description</th>
+  </tr>
+  {% for x in myitems %}
+    <tr style='font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #7f878c;
+  text-decoration: none;
+  font-style: normal;'>
+      <td>{{ x.item_name }}</td>
+        <td style="padding-left: 1em">{{ x.category }}</td>
+      <td style="padding-left: 1em">{{ x.price }}</td>
+    <td style="padding-left: 1em">{{ x.status }}</td>
+    <td style="padding-left: 2em">{{ x.description }}</td>
+    </tr>
+  {% endfor %}
+</table>
+</body>
+</html>
