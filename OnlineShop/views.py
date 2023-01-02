@@ -2,17 +2,46 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from OnlineShop.models import Item
+import ast 
+
 
 def home_page(request):
     return render(request, "home.html")
+    
 
 def item_list(request):
-    mydata = Item.objects.all().values()
+    mydata = Item.objects.all()
     template = loader.get_template('item.html')
     context = {
         'myitems': mydata,
     }
     return HttpResponse(template.render(context, request))
+
+def get_item_drinks(request):
+    mydata = Item.objects.filter(category__exact='Drinks')
+    template = loader.get_template('drinks.html')
+    context = {
+        'mydrinks': mydata,
+    }
+    return HttpResponse(template.render(context, request))
+
+def get_item_technique(request):
+    mydata = Item.objects.filter(category__exact='Technique')
+    template = loader.get_template('technique.html')
+    context = {
+        'mytechnique': mydata,
+    }
+    return HttpResponse(template.render(context, request))
+    
+
+def get_item_food(request):
+    mydata = Item.objects.filter(category__exact='Food')
+    template = loader.get_template('food.html')
+    context = {
+        'myfood': mydata,
+    }
+    return HttpResponse(template.render(context, request))
+    
 
 
 def show_user_account(request):

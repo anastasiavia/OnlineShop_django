@@ -1,13 +1,20 @@
 from django.db import models
 from django.conf import settings
 # Create your models here.
-
+def choices():
+    fields = [
+        ('Drinks', 'Drinks'),
+        ('Technique', 'Technique'),
+        ('Food', 'Food')
+    ]
+    return fields
 class Item(models.Model):
     item_name = models.CharField(max_length=100)
     price = models.FloatField()
-    category = models.CharField(max_length=100)
+    category = models.CharField(max_length=10, choices=choices(),default='')
     description = models.TextField()
     status = models.CharField(max_length=12)
+    url = models.URLField(max_length=200)
 
     def __str__(self):
         return self.item_name
